@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-portfolio
+  namespace: argocd  
+spec:
+  project: default
+  source:
+    repoURL: https://lynasovann.github.io/artifacts/
+    chart: nextjs 
+    targetRevision: 0.2.3        
+    helm:
+      releaseName: my-portfolio
+      values: |                      
+        domainName: "portfolio.lynasovann.site"
+
+        image:
+          repository: lynakiddy/portfolio
+          tag: "latest"
+          containerPort: 3000
+
+        service:
+          type: ClusterIP
+          port: 3000
+          targetPort: 3000
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: portfolio
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
