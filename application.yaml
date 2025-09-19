@@ -6,13 +6,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://lynasovann.github.io/artifacts/
-    chart: nextjs 
-    targetRevision: 0.2.3        
-    helm:
-      releaseName: my-portfolio
-      valueFiles:
-        - https://raw.githubusercontent.com/LynaSovann/portfolio-app/main/values.yaml
+    repoURL: https://github.com/LynaSovann/portfolio-app.git
+    path: k8s/    
   destination:
     server: https://kubernetes.default.svc
     namespace: portfolio

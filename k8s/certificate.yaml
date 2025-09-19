@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: my-portfolio-nextjs-certificate
+spec:
+  secretName: my-portfolio-nextjs-tls
+  commonName: portfolio.lynasovann.site
+  dnsNames:
+  - portfolio.lynasovann.site
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer

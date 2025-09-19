@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-portfolio-nextjs-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-portfolio-nextjs
+      release: my-portfolio
+  template:
+    metadata:
+      labels:
+        app: my-portfolio-nextjs
+        release: my-portfolio
+    spec:
+      containers:
+      - name: my-portfolio-nextjs
+        image: lynakiddy/portfolio:latest
+        ports:
+        - containerPort: 3000
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "500m"
+            memory: "256Mi"
