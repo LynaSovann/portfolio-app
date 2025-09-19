@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: my-portfolio-nextjs
-        image: lynakiddy/portfolio:latest
+        image: lynakiddy/portfolio:15-dec4300
         ports:
         - containerPort: 3000
         resources:
