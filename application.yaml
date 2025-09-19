@@ -11,21 +11,14 @@ spec:
     targetRevision: 0.2.3        
     helm:
       releaseName: my-portfolio
-      values: |                      
-        domainName: "portfolio.lynasovann.site"
-
-        image:
-          repository: lynakiddy/portfolio
-          tag: "12-fce69ac"
-          containerPort: 3000
-
-        service:
-          type: ClusterIP
-          port: 3000
-          targetPort: 3000
+      valueFiles:
+        - https://raw.githubusercontent.com/LynaSovann/portfolio-app/main/values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: portfolio
   syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
       - CreateNamespace=true

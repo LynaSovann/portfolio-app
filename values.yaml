@@ -1,0 +1,9 @@
+domainName: "portfolio.lynasovann.site"
+image:
+  repository: lynakiddy/portfolio
+  tag: "latest" 
+  containerPort: 3000
+service:
+  type: ClusterIP
+  port: 3000
+  targetPort: 3000
