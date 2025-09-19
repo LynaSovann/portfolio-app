@@ -16,7 +16,7 @@ spec:
 
         image:
           repository: lynakiddy/portfolio
-          tag: "10-0338f5d"
+          tag: "12-fce69ac"
           containerPort: 3000
 
         service:
